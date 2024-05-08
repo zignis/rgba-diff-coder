@@ -3,12 +3,11 @@
 #include <assert.h>
 #include "rgba_diff_coder"
 
-typedef struct {
+struct RGBA {
   unsigned int r, g, b, a;
-}
-RGBA;
+};
 
-void encode(const RGBA * input, RGBA * output, int pixel_count) {
+void encode(const RGBA *input, RGBA *output, int pixel_count) {
   assert(pixel_count % 4 == 0);
 
   output[0] = input[0];
@@ -28,7 +27,7 @@ void encode(const RGBA * input, RGBA * output, int pixel_count) {
   }
 }
 
-void decode(const RGBA * input, RGBA * output, int pixel_count) {
+void decode(const RGBA *input, RGBA *output, int pixel_count) {
   assert(pixel_count % 4 == 0);
 
   output[0] = input[0];
